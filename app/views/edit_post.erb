@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Edit Post</h1>
+  
+  <form action="/update_post/<%=@post.id%>" method="post">
+    Edit Post:
+    <br>
+    <select name="category_id">
+      <%Category.show_all.each do |cat|%>
+      <option value="<%=cat.id%>" <%="selected" if @post.category_id == cat.id%>><%=cat.name%></option>
+      <%end%>
+    </select>
+    <br />
+    <br>Post Title</br>
+    <input type="text" name="post[title]" value=<%=@post.title%>>
+    <br />
+    <br>Post Body</br>
+    <input type="text" name="post[body]" value=<%=@post.body%>>
+    <br />
+    <br>Optional Price</br>
+    <input type="integer" name="post[price]" value=<%=@post.price%>>
+    <br />
+    <br>Enter Your Email</br>
+    <input type="text" name="post[email]" value=<%=@post.email%>>
+    <br />
+    <br><input type="submit" value="POST!"></br>
+  </form>
+</div>
